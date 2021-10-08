@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	rnjson "github.com/thak1411/rn-json"
+	rnjson "github.com/thak1411/rnjson"
 )
 
 func main() {

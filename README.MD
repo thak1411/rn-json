@@ -1,3 +1,3 @@
-# rn-json
+# rnjson
 
 Rn's Golang JSON Handler
