@@ -5,25 +5,24 @@ import (
 	"strings"
 )
 
-func Get(obj interface{}, path string) (interface{}, bool) {
+func Get(obj interface{}, path string) interface{} {
 	if path == "" {
-		return obj, true
+		return obj
 	}
 	spt := strings.Split(path, ".")
 	temp, ok := obj.(map[string]interface{})
 	if !ok {
-		return nil, false
+		return nil
 	}
 	n := len(spt)
 	for _, v := range spt[:n-1] {
 		tmp, ok := temp[v].(map[string]interface{})
 		if !ok {
-			return nil, false
+			return nil
 		}
 		temp = tmp
 	}
-	v, ok := temp[spt[n-1]]
-	return v, ok
+	return temp[spt[n-1]]
 }
 
 func Unmarshal(dat string) (map[string]interface{}, error) {
